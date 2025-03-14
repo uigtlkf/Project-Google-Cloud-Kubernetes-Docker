@@ -1,5 +1,23 @@
+# a51823968
+Camera stream start: 
+
+kubectl exec -it deployment/collector-deployment -- curl -X POST http://localhost:80/start-camera -H "Content-Type: application/json" -d '{}' 
 
 
+Check if the services received data from the camera:
+
+
+kubectl logs deployment/camera-deployment --tail=50  
+
+kubectl logs deployment/collector-deployment --tail=50  
+
+kubectl logs deployment/image-analysis-deployment --tail=50
+
+kubectl logs deployment/alert-deployment --tail=50
+
+kubectl logs deployment/section-deployment --tail=50
+
+kubectl logs deployment/face-recognition-deployment --tail=50
 
 ## Getting started
 

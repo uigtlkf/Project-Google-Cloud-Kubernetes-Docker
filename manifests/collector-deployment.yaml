@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: collector-container
-        image: gcr.io/nifty-condition-440500-t9/collector-service
+        image: gcr.io/my-project-123-danaa/collector-service
         ports:
-        - containerPort: 8080
+        - containerPort: 80

@@ -3,15 +3,22 @@ kind: Ingress
 metadata:
   name: collector-ingress
   annotations:
-    kubernetes.io/ingress.class: "gce"
+    kubernetes.io/ingress.class: gce
 spec:
   rules:
-  - http:
-      paths:
-      - path: /collector
-        pathType: Prefix
-        backend:
-          service:
-            name: collector-service
-            port:
-              number: 8080
+    - http:
+        paths:
+          - path: /collector
+            pathType: Prefix
+            backend:
+              service:
+                name: collector-service
+                port:
+                  number: 80
+          - path: /camera
+            pathType: Prefix
+            backend:
+              service:
+                name: camera-service
+                port:
+                  number: 80

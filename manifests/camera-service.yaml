@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camera-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: camera
+  template:
+    metadata:
+      labels:
+        app: camera
+    spec:
+      containers:
+      - name: camera
+        image: gcr.io/my-project-123-danaa/camera-service
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: camera-service
+spec:
+  selector:
+    app: camera
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: ClusterIP
