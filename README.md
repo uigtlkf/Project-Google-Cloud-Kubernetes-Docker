@@ -1,4 +1,3 @@
-# a51823968
 Camera stream start: 
 
 kubectl exec -it deployment/collector-deployment -- curl -X POST http://localhost:80/start-camera -H "Content-Type: application/json" -d '{}' 
